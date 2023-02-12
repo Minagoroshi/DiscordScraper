@@ -60,7 +60,6 @@ func checkTag(username string, tag int, auth string) (bool, error) {
 	}
 
 	if res.StatusCode == 429 {
-		log.Println(string(body))
 		// Get the retry after time
 		var ratelimitResponse RatelimitResponse
 		err = json.Unmarshal(body, &ratelimitResponse)
