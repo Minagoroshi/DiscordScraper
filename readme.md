@@ -5,7 +5,9 @@ A command-line program that scrapes a wordlist of usernames with a specified tag
 ## Usage
 
 ```bash
-go run tagchecker.go -token <bot_access_token> -wordlist <path_to_wordlist> -tag <tag_number>
+In a terminal/command prompt in the same directory run:
+
+./DiscordOGUScraper -token <bot_access_token> -wordlist <path_to_wordlist>(Optional. Default: "wordlist.txt") -tag <tag_number>(Optional. Default: 1)
 ```
 
 ## Flags
