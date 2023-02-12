@@ -5,7 +5,7 @@ A command-line program that scrapes a wordlist of usernames with a specified tag
 ## Usage
 Using a terminal/command prompt in the same directory run:
 ```bash
-./DiscordOGUScraper -token <bot_access_token> -wordlist <path_to_wordlist> -tag <tag_number>
+./DiscordOGUScraper -token <discord_token> -wordlist <path_to_wordlist> -tag <tag_number>
 ```
 
 ## Flags
