@@ -3,16 +3,16 @@
 A command-line program that scrapes a wordlist of usernames with a specified tag on Discord. It reads a list of words from a wordlist file and checks the availability of the specified tag for each word.
 
 ## Usage
-
+Using a terminal/command prompt in the same directory run:
 ```bash
-go run tagchecker.go -token <bot_access_token> -wordlist <path_to_wordlist> -tag <tag_number>
+./DiscordOGUScraper -token <discord_token> -wordlist <path_to_wordlist> -tag <tag_number>
 ```
 
 ## Flags
 
 - `-token`: Discord token (Required) (Nitro required)
-- `-wordlist`: Wordlist to use (default: wordlist.txt)
-- `-tag`: Tag to check (default: 1)
+- `-wordlist`: Wordlist to use (Optional. default: wordlist.txt)
+- `-tag`: Tag to check (Optional. default: 1)
 
 ## Output
 
