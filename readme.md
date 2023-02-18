@@ -8,17 +8,34 @@ Using a terminal/command prompt run:
 cd <path_to_discordscraper>
 ```
 Then run:
-```
 ```bash
-./DiscordOGUScraper -token <discord_token> -wordlist <path_to_wordlist> -tag <tag_number>
+./DiscordOGUScraper [options]
+```
+
+## Examples
+Vanity URL example:
+```bash
+./DiscordOGUScraper -type vanity
+```
+User tag example:
+```bash
+./DiscordOGUScraper -token <token> 
+```
+Custom wordlist example:
+```bash
+./DiscordOGUScraper -token <token> -wordlist <path_to_wordlist>
+```
+Custom tag example:
+```bash
+./DiscordOGUScraper -token <token> -tag <tag>
 ```
 
 ## Flags
 
-- `-token`: Discord token (Required) (Nitro required)
+- `-token`: Discord token (Used for tag scraper) (Nitro required)
 - `-wordlist`: Wordlist to use (Optional. default: wordlist.txt)
 - `-tag`: Tag to check (Optional. default: 1)
-- `-type`: Type of scrape (Optional. default: "user" (user, vanity)
+- `-type`: Type of scrape (Optional. default: "user" Options: (user, vanity)
 
 ## Output
 
