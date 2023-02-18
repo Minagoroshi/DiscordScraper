@@ -15,19 +15,19 @@ DiscordOGUScraper [options]
 ## Examples
 Vanity URL example:
 ```bash
-./DiscordOGUScraper -type vanity
+DiscordOGUScraper -type vanity
 ```
 User tag example:
 ```bash
-./DiscordOGUScraper -token <token> 
+DiscordOGUScraper -token <token> 
 ```
 Custom wordlist example:
 ```bash
-./DiscordOGUScraper -token <token> -wordlist <path_to_wordlist>
+DiscordOGUScraper -token <token> -wordlist <path_to_wordlist>
 ```
 Custom tag example:
 ```bash
-./DiscordOGUScraper -token <token> -tag <tag>
+DiscordOGUScraper -token <token> -tag <tag>
 ```
 
 ## Flags
