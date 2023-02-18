@@ -52,13 +52,13 @@ func main() {
 			if tag {
 				log.Println("Tag available:", word, "#", *Tag)
 				// check if output file exists. If not, create it and append to it, otherwise, append to it.
-				if _, err := os.Stat("output.txt"); os.IsNotExist(err) {
-					err := os.WriteFile("output.txt", []byte(word+"\n"), 0644)
+				if _, err := os.Stat("username_output.txt"); os.IsNotExist(err) {
+					err := os.WriteFile("username_output.txt", []byte(word+"\n"), 0644)
 					if err != nil {
 						log.Fatal("Error creating file:", err)
 					}
 				} else {
-					f, err := os.OpenFile("output.txt", os.O_APPEND|os.O_WRONLY, 0600)
+					f, err := os.OpenFile("username_output.txt", os.O_APPEND|os.O_WRONLY, 0600)
 					if err != nil {
 						log.Fatal("Error opening file:", err)
 					}
@@ -82,13 +82,13 @@ func main() {
 			if !vanity {
 				log.Println("Vanity available:", word)
 				// check if output file exists. If not, create it and append to it, otherwise, append to it.
-				if _, err := os.Stat("output.txt"); os.IsNotExist(err) {
-					err := os.WriteFile("output.txt", []byte(word+"\n"), 0644)
+				if _, err := os.Stat("vanity_output.txt"); os.IsNotExist(err) {
+					err := os.WriteFile("vanity_output.txt", []byte(word+"\n"), 0644)
 					if err != nil {
 						log.Fatal("Error creating file:", err)
 					}
 				} else {
-					f, err := os.OpenFile("output.txt", os.O_APPEND|os.O_WRONLY, 0600)
+					f, err := os.OpenFile("vanity_output.txt", os.O_APPEND|os.O_WRONLY, 0600)
 					if err != nil {
 						log.Fatal("Error opening file:", err)
 					}
