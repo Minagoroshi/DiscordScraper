@@ -9,7 +9,7 @@ cd <path_to_discordscraper>
 ```
 Then run:
 ```bash
-./DiscordOGUScraper [options]
+DiscordOGUScraper [options]
 ```
 
 ## Examples
