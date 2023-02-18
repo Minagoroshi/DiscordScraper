@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -29,7 +30,7 @@ func checkTag(username string, tag int, auth string) (bool, error) {
 		return false, errors.New("error marshalling payload")
 	}
 
-	client := &http.Client{}
+	client := &http.Client{Timeout: 10 * time.Second}
 	req, err := http.NewRequest(method, url, bytes.NewBuffer(jsonPayload))
 
 	if err != nil {
@@ -77,6 +78,49 @@ func checkTag(username string, tag int, auth string) (bool, error) {
 		return false, nil
 	}
 
+	return true, nil
+}
+
+func checkVanity(vanity string) (bool, error) {
+	url := "https://discord.com/api/v9/invites/" + vanity + "?with_counts=true&with_expiration=true"
+	client := &http.Client{Timeout: 10 * time.Second}
+	res, err := client.Get(url)
+	if err != nil {
+		return false, errors.New("error sending request")
+	}
+
+	defer res.Body.Close()
+
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		return false, errors.New("error reading response body")
+	}
+
+	// 400 = good
+	// 401 = unauthorized
+	// 429 = too many requests
+
+	if res.StatusCode == 401 {
+		return false, errors.New("unauthorized")
+	}
+
+	if res.StatusCode == 429 {
+		// Get the retry after time
+		var ratelimitResponse RatelimitResponse
+		err = json.Unmarshal(body, &ratelimitResponse)
+		if err != nil {
+			return false, err
+		}
+		log.Println("Rate limited for: "+strconv.Itoa(int(ratelimitResponse.RetryAfter))+" seconds", "Trying again...")
+		// Wait for the retry after time
+		time.Sleep(10 * time.Second)
+		// Try again
+		return checkVanity(vanity)
+	}
+
+	if strings.Contains(string(body), "Unknown Invite") {
+		return false, nil
+	}
 	return true, nil
 }
 
