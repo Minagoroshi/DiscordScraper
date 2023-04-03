@@ -1,4 +1,5 @@
-# Disclaimer: I made this public because it's too simple of a script to "gatekeep" to myself. This could be made better with proxies, but I want to spend my time working on more important projects, if you wish to improve it please make a pull request and i'll review & merge it.
+# Disclaimer: 
+## I made this public because it's too simple of a script to "gatekeep" to myself. This could be made better with proxies, but I want to spend my time working on more important projects, if you wish to improve it please make a pull request and i'll review & merge it.
 
 
 # Tag Checker
